@@ -66,7 +66,7 @@
                 right: 20px;
                 display: inline-block;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-                max-width: 300px;
+                width: 300px;
                 margin: auto;
                 text-align: center;
                 font-family: arial;
@@ -116,21 +116,17 @@
                     Конструктор техники
                 </div>
 
-                <div class="card">
-                    <img src="jeans3.jpg" alt="Джинсы из денима" style="width:100%">
-                    <h1>Скроенные джинсы</h1>
-                    <p class="price">$19.99</p>
-                    <p>Некоторый текст о джинсах..</p>
-                    <p><button>Добавить карточку</button></p>
-                </div>
-                <div class="card">
-                    <img src="jeans3.jpg" alt="Джинсы из денима" style="width:100%">
-                    <h1>Скроенные джинсы</h1>
-                    <p class="price">$19.99</p>
-                    <p>Некоторый текст о джинсах..</p>
-                    <p><button>Добавить карточку</button></p>
-                </div>
+                @foreach ($products as $product)
+                    <div class="card">
+                        <img src="{{$product->img}}" style="width:100%">
+                        <h1>{{ $product->name }}</h1>
+                        <p>{{ $product->info }}</p>
+                        <p><button>Добавить карточку</button></p>
+                    </div>
+                @endforeach
 
+
+        </div>
         </div>
     </body>
 </html>
